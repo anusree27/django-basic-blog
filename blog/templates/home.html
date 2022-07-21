@@ -1,0 +1,92 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogs</title>
+</head>
+<body>
+    <h1>Blogs</h1>
+    <br>
+    {% for blg in blogs %}
+    <a href="/blog/{{blg.id}}">
+        <h2>{{blg.heading}}</h2>
+        <h4>{{blg.date}}</h4>
+        <p>{{blg.content}}</p>
+    </a>
+    <br>
+
+    {% endfor %}
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+.header {
+  padding: 2px;
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+.leftcolumn {   
+  float: left;
+  width: 100%;
+}
+
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h2>Anusree Blog</h2>
+</div>
+
+<div class="row">
+  <div class="leftcolumn">
+    {% for blg in blogs %}
+    <div class="card">
+      <a style="text-decoration: none; color: black;" href="/blog/{{blg.id}}">
+        <h2>{{blg.heading}}</h2>
+        <h5>{{blg.date}}</h5>
+        <p>{{blg.content|truncatewords:20}}</p>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+</body>
+</html>
